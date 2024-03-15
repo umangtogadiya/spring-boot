@@ -49,5 +49,5 @@ jobs:
 
       - name: Harden Docker image
         run: |
-          docker pull umutogadiya/spring-boot
-          docker run --net host --pid host --userns host --cap-add audit_control -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST -v /etc:/host/etc:ro -v /usr/bin/containerd:/host/usr/bin/containerd:ro -v /usr/bin/runc:/host/usr/bin/runc:ro -v /usr/bin/docker:/host/usr/bin/docker:ro -v /usr/lib/systemd:/host/usr/lib/systemd:ro -v /var/lib:/host/var/lib:ro docker/docker-bench-security:latest
+          docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+          docker run --rm -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock docker/dockerfile:1.0.0 docker build -t umutogadiya/spring-boot .
