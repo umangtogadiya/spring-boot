@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           
-      - name: Run Trivy vulnerability scanner
+      - name: Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: umutogadiya/spring-boot
