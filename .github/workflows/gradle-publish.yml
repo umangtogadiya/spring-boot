@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Trivy Scan
-        uses: aquasecurity/trivy-github-action@v0.4.0
+        uses: aquasecurity/trivy-github-action@master
         with:
           image-ref: umutogadiya/spring-boot
           exit-code: 1
